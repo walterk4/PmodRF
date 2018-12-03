@@ -124,7 +124,7 @@ DATA_ACCESS : DATA_interface port map (clk => clk,
 SYNC_PROC: process (clk,enable)
 begin
 if (clk'event and clk = '1') then
-     if (rst_n = '1') then
+     if (rst_n = '0') then
          State <= IDLE;
      elsif(enable = '1') then
          State <= NextState;
