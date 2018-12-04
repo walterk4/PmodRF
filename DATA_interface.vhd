@@ -101,12 +101,12 @@ begin
                 NextState <= WRITE_SHORT;
             end if;
         when WRITE_LONG =>
-            if(long_wr < 1)then
+            if(long_wr < 2)then
                 dat_done <= '1';
                 add_done <= '0';
                 data_line <= long_add_wr(long_wr);
                 NextState <= FINISH;
-            elsif(long_wr < 9)then
+            elsif(long_wr < 11)then
                 dat_done <= '0';
                 add_done <= '0';
                 data_line <= long_add_wr(long_wr);
@@ -123,12 +123,12 @@ begin
                 NextState <= WRITE_LONG;
             end if;
         when WRITE_SHORT =>
-            if(short_wr < 1)then
+            if(short_wr < 2)then
                 dat_done <= '1';
                 add_done <= '0';
                 data_line <= shrt_add_wr(short_wr);
                 NextState <= FINISH;
-            elsif(short_wr < 9)then
+            elsif(short_wr < 11)then
                 dat_done <= '0';
                 add_done <= '0';
                 data_line <= shrt_add_wr(short_wr);
@@ -145,12 +145,12 @@ begin
                 NextState <= WRITE_SHORT;
             end if;
         when READ_LONG =>
-            if (long_wr < 1)then
+            if (long_wr < 2)then
                dat_done <= '1';
                add_done <= '0';
                data_line <= long_add_wr(long_wr); 
                NextState <= FINISH; 
-            elsif(long_wr < 9)then
+            elsif(long_wr < 11)then
                dat_done <= '0';
                add_done <= '0';
                data_line <= long_add_wr(long_wr);
@@ -167,12 +167,12 @@ begin
                 NextState <= READ_LONG;
             end if;
         when READ_SHORT =>
-            if(short_wr < 1)then
+            if(short_wr < 2)then
                 dat_done <= '1';
                 add_done <= '0';
                 data_line <= shrt_add_wr(short_wr);
                 NextState <= FINISH;
-            elsif(short_wr < 10) then
+            elsif(short_wr < 11) then
                 dat_done <= '0';
                 add_done <= '0';    
                 data_line <= shrt_add_wr(short_wr);
